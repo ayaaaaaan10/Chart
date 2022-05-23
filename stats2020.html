@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <style type="text/css">
+        .container{
+         padding:30px ;
+            width: 1000px;
+        }
+        @media only screen and (max-width:600px){
+            .container{
+                width: 550px; ;
+            }
+
+        }
+        @media only screen and (max-width:450px){
+            .container{
+                width: 400px; ;
+            }
+
+        }
+        @media only screen and (max-width:400px){
+            .container{
+                width: 350px; ;
+            }
+
+        }
+       
+     
+    </style>
+    <title>19-20</title>
+    
+</head>
+<body >
+    <h1>FIFA 2019-20 Season Stats</h1>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div class="container">
+        <canvas id="myChart1" ></canvas>
+    </div>
+    <div class="container">
+        <canvas id="myChart2" ></canvas>
+    </div>
+
+    
+
+
+    
+    <script>
+        const myChart= document.getElementById('myChart').getContext('2d');
+      
+        const StandingsChart = new Chart(myChart,{
+            type:'bar',
+            data:{
+                labels:['Robert Lewandowski',
+                'Cristiano Ronaldo',
+                'Lionel Messi',
+                'Sadio Mané',
+                'Kevin De Bruyne',
+                'Mohamed Salah',
+                'Kylian Mbappé',
+                'Thiago',
+                'Neymar',
+                'Virgil van Dijk',
+                'Sergio Ramos'
+                ],
+                datasets:[{
+                    label:'Points',
+                    data:[ 52,38 ,35,29, 26, 25,19,17,16,13,7 
+                     ],
+                            backgroundColor:[
+                            'rgba(247, 0, 0, 0.8)',
+                            'rgba(6, 229, 254, 0.8)',
+                            'rgba(6, 0, 254, 0.98)',
+                            'rgba(255, 37, 163, 0.71)',
+                            'rgba(255, 234, 0, 1)',
+                            'rgba(255, 169, 0, 0.98)',
+                            'rgba(6, 0, 254, 0.98)',
+                            'rgba(247, 0, 0, 0.8)',
+                            'rgba(255, 169, 0, 0.98)',
+                            'rgba(0, 0, 148, 0.39)',
+                            'rgba(255, 37, 163, 0.71)',
+                            'rgba(255, 234, 0, 1)',
+                            'rgba(247, 0, 0, 0.8)',
+                            'rgba(255, 37, 163, 0.71)'
+                            
+                            
+                            ]
+                }]
+            },
+            options: {
+
+                scales:{
+                 x:{ ticks:{
+                         color:'white'
+                     
+                     }
+
+                 },
+                 y:{
+                     ticks:{
+                         color:'white'
+                     
+                     }
+                   
+                 }
+             },
+               
+                
+            plugins: {
+                
+            title: {
+                display: true,
+                text: 'Points',
+                color:'black'
+            },
+          
+            legend: {
+                display: false
+                
+
+            }
+        }
+    }
+            
+        });  
+
+        const ctx1= document.getElementById('myChart1').getContext('2d');
+             const myChart1 = new Chart(ctx1,{
+            type:'line',
+            data :{
+                labels:[
+                'Robert Lewandowski',
+                'Cristiano Ronaldo',
+                'Lionel Messi',
+                'Sadio Mané',
+                'Kevin De Bruyne',
+                'Mohamed Salah',
+                'Kylian Mbappé',
+                'Thiago',
+                'Neymar',
+                'Virgil van Dijk',
+                'Sergio Ramos'
+                    ],
+             datasets:[{
+                            label:'Points',
+                            data:	[
+                                     55,37,31,22,16,23,30,13,5,13
+                                    ],
+                                    backgroundColor:[
+                            
+                           
+                            'rgba(6, 229, 254, 0.8)',
+                            'rgba(6, 0, 254, 0.98)',
+                            'rgba(255, 169, 0, 0.98)',  
+                            'rgba(255, 37, 163, 0.71)',
+                            'rgba(255, 234, 0, 1)',
+                            'rgba(247, 0, 0, 0.8)',
+                            'rgba(0, 0, 148, 0.39)',
+                            'rgba(146, 0, 0, 1)',
+                            'rgba(175, 0, 66, 0.75)',                        
+                            'rgba(46, 164, 210, 0.75)',
+                            
+                            ],
+                            
+                            borderColor:'rgba(15, 100, 54, 5)',
+                            tension:0.4,
+                            fill:true
+                                    
+                        }]
+            },
+            options:{
+                scales:{
+                 x:{ ticks:{
+                         color:'white'
+                     
+                     }
+
+                 },
+                 y:{
+                     ticks:{
+                         color:'white'
+                     
+                     }
+                     
+                   
+                 }
+             },
+                
+                plugins: {
+            title: {
+                display: true,
+                text: 'Goals Scored',
+                color:'black'
+            },
+            legend: {
+                display: false
+
+            }
+        }
+            }
+        });
+        const ctx2= document.getElementById('myChart2').getContext('2d');
+        const myChart2 = new Chart(ctx2,{
+            type:'pie',
+            data :{
+                labels:[ 'Robert Lewandowski',
+                'Cristiano Ronaldo',
+                'Lionel Messi',
+                'Sadio Mané',
+                'Kevin De Bruyne',
+                'Mohamed Salah',
+                'Kylian Mbappé',
+                'Thiago',
+                'Neymar',
+                'Virgil van Dijk',
+                'Sergio Ramos'],
+                datasets :[{
+                    label:'Wins',
+                    data:[6,1,1,1,2,1,3,6,3,1,2],
+                    backgroundColor: ['rgba(6, 229, 254, 0.8)',
+                    'rgba(146, 250, 0, 1)',
+                    'rgba(6, 0, 254, 0.98)',
+                    'rgba(255, 37, 163, 0.71)',
+                    'rgba(146, 0, 0, 10)',
+                    'rgba(255, 169, 0, 0.98)',
+                    'rgba(255, 234, 0, 1)',
+                    'rgba(55, 19, 0, 0.98)',,
+                    'rgba(80, 0, 104, 1)',
+                    'rgba(0, 0, 148, 0.39)'],
+                   
+                }]
+                
+            },
+            options:{
+             scales:{
+                 
+             },
+             
+                plugins: {
+            title: {
+                display: true,
+                text: 'Titles won',
+                color:'black'
+            },
+            legend: {
+                display: false
+
+            }
+        }
+            }
+
+        });
+           
+
+    
+        
+    </script>
+
+<footer>
+    <div class="text">
+      <span>Created By Ayaan Imthiyaz
+    </div>
+  </footer>
+
+</body>
+</html>
